@@ -10,6 +10,6 @@
 		<li>Replimat_zh</li>
 	</incompatibleWith>
 	<showCrossPromotions>true</showCrossPromotions>
-	<manifestUri>https://raw.githubusercontent.com/sumghai/Replimat/master/About/Manifest.xml</manifestUri>
-	<downloadUri>https://github.com/sumghai/Replimat/releases/latest</downloadUri>
+	<manifestUri>https://raw.githubusercontent.com/Beanzilla/Replimat/master/About/Manifest.xml</manifestUri>
+	<downloadUri>https://github.com/Beanzilla/Replimat/releases/latest</downloadUri>
 </Manifest>

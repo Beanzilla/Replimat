@@ -44,13 +44,12 @@
 		</graphicData>
 		<uiIconPath>UI/replimatTerminal</uiIconPath>
 		<costList>
-			<Steel>50</Steel>
-			<ComponentSpacer>5</ComponentSpacer>
-			<Plasteel>20</Plasteel>
+			<Steel>30</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<MarketValue>20000</MarketValue>
+			<MarketValue>700</MarketValue>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>5000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -72,12 +71,12 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>2000</basePowerConsumption>
+				<basePowerConsumption>20</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="Replimat.CompProperties_StateDependentPowerUse">
-				<activeModePowerConsumption>10000</activeModePowerConsumption>
+				<activeModePowerConsumption>100</activeModePowerConsumption>
 			</li>
 		</comps>
 	</ThingDef>
@@ -101,13 +100,12 @@
 			</damageData>
 		</graphicData>
 		<costList>
-			<Steel>5</Steel>
+			<Steel>12</Steel>
 			<ComponentSpacer>2</ComponentSpacer>
-			<Plasteel>2</Plasteel>
 		</costList>
 		<fillPercent>0.1</fillPercent>
 		<statBases>
-			<MarketValue>5000</MarketValue>
+			<MarketValue>500</MarketValue>
 			<MaxHitPoints>20</MaxHitPoints>
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -147,12 +145,12 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>500</basePowerConsumption>
+				<basePowerConsumption>10</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="Replimat.CompProperties_StateDependentPowerUse">
-				<activeModePowerConsumption>2500</activeModePowerConsumption>
+				<activeModePowerConsumption>100</activeModePowerConsumption>
 			</li>
 		</comps>
 	</ThingDef>
@@ -174,10 +172,8 @@
 		</graphicData>
 		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<costList>
-			<Steel>25</Steel>
-			<ComponentIndustrial>5</ComponentIndustrial>
+			<Steel>75</Steel>
 			<ComponentSpacer>1</ComponentSpacer>
-			<Plasteel>75</Plasteel>
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
@@ -196,7 +192,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>500</basePowerConsumption>
+				<basePowerConsumption>30</basePowerConsumption>
 			</li>
 		</comps>
 	</ThingDef>
@@ -225,14 +221,12 @@
 		</graphicData>
 		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<costList>
-			<Steel>80</Steel>
-			<ComponentIndustrial>10</ComponentIndustrial>
-			<ComponentSpacer>8</ComponentSpacer>
-			<Plasteel>50</Plasteel>
+			<Steel>40</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
-			<MarketValue>30000</MarketValue>
+			<MarketValue>650</MarketValue>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>7000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -279,7 +273,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>2000</basePowerConsumption>
+				<basePowerConsumption>10</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Forbiddable"/>
@@ -293,7 +287,7 @@
 				<altitudeLayer>ItemImportant</altitudeLayer>
 			</li>
 			<li Class="Replimat.CompProperties_StateDependentPowerUse">
-				<activeModePowerConsumption>20000</activeModePowerConsumption>
+				<activeModePowerConsumption>200</activeModePowerConsumption>
 			</li>
 		</comps>
 	</ThingDef>
@@ -318,14 +312,12 @@
 		</graphicData>
 		<uiIconPath>UI/replimatCorpseRecycler</uiIconPath>
 		<costList>
-			<Steel>100</Steel>
-			<ComponentIndustrial>10</ComponentIndustrial>
-			<ComponentSpacer>8</ComponentSpacer>
-			<Plasteel>80</Plasteel>
+			<Steel>75</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
-			<MarketValue>35000</MarketValue>
+			<MarketValue>550</MarketValue>
 			<MaxHitPoints>150</MaxHitPoints>
 			<WorkToBuild>8000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -370,12 +362,12 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>2000</basePowerConsumption>
+				<basePowerConsumption>35</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Forbiddable"/>
 			<li Class="Replimat.CompProperties_StateDependentPowerUse">
-				<activeModePowerConsumption>25000</activeModePowerConsumption>
+				<activeModePowerConsumption>250</activeModePowerConsumption>
 			</li>
 		</comps>
 	</ThingDef>
@@ -402,15 +394,13 @@
 		</graphicData>
 		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<costList>
-			<Steel>80</Steel>
-			<ComponentSpacer>12</ComponentSpacer>
-			<ComponentIndustrial>8</ComponentIndustrial>
-			<Plasteel>60</Plasteel>
+			<Steel>45</Steel>
+			<ComponentSpacer>4</ComponentSpacer>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
-			<MarketValue>40000</MarketValue>
+			<MarketValue>1200</MarketValue>
 			<MaxHitPoints>400</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
 			<Flammability>0.3</Flammability>
@@ -423,7 +413,7 @@
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>1000</basePowerConsumption>
+				<basePowerConsumption>100</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="Replimat.CompProperties_ReplimatRestrictions">

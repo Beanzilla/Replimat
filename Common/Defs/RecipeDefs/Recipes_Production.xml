@@ -2,10 +2,10 @@
 <Defs>
 
 	<RecipeDef>
-		<defName>ReplimatDisassembleAiCore</defName>
-		<label>Disassemble AI persona core</label>
-		<description>Disassemble an AI persona core for useful parts.</description>
-		<jobString>Disassembling AI persona core.</jobString>
+		<defName>ReplimatDisassembleComponent</defName>
+		<label>Disassemble Components</label>
+		<description>Disassemble 4 components for useful parts.</description>
+		<jobString>Disassembling components.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
@@ -14,23 +14,21 @@
 			<li>
 				<filter>
 					<thingDefs>
-						<li>AIPersonaCore</li>
+						<li>ComponentSpacer</li>
 					</thingDefs>
 				</filter>
-				<count>1</count>
+				<count>4</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
 			<thingDefs>
-				<li>AIPersonaCore</li>
+				<li>ComponentSpacer</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<ComponentSpacer>12</ComponentSpacer>
-			<ComponentIndustrial>20</ComponentIndustrial>
 			<IsolinearModule>1</IsolinearModule>
 		</products>
-		<researchPrerequisite>AdvancedFabrication</researchPrerequisite>
+		<researchPrerequisite>Machining</researchPrerequisite>
 		<skillRequirements>
 			<Crafting>8</Crafting>
 		</skillRequirements>

@@ -1,4 +1,4 @@
-# Replimat
+# Replimat (low-power)
 Distributed food replicator system for RimWorld
 
 **Author:** Robin "sumghai" Chang (sumdumghai@gmail.com) and Dubwise
@@ -8,3 +8,8 @@ Distributed food replicator system for RimWorld
 [**Official Thread on Ludeon Forums**](https://ludeon.com/forums/index.php?topic=48584.0)
 
 [**Steam Workshop**](https://steamcommunity.com/sharedfiles/filedetails/?id=1715402900)
+
+**Changes:** (By Beanzilla)
+
+- Reduced power and resource costs for all machines (the IsolinearModule costs components, all machines no longer require plasteel or advanced components)
+
