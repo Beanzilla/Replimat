@@ -65,21 +65,21 @@
 				</li>
 
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleAiCore"]/label</xpath>
+					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleComponent"]/label</xpath>
 					<value>
 						<label>请卸载边缘汉化组的非官方Replimat_zh汉化包！</label>
 					</value>
 				</li>
 
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleAiCore"]/description</xpath>
+					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleComponent"]/description</xpath>
 					<value>
 						<description>请卸载边缘汉化组的非官方Replimat_zh汉化包！</description>
 					</value>
 				</li>
 
 				<li Class="PatchOperationReplace">
-					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleAiCore"]/jobString</xpath>
+					<xpath>Defs/RecipeDef[defName="ReplimatDisassembleComponent"]/jobString</xpath>
 					<value>
 						<jobString>请卸载边缘汉化组的非官方Replimat_zh汉化包！</jobString>
 					</value>

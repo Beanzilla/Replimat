@@ -7,7 +7,7 @@
 			<li Class="PatchOperationAdd">
 				<xpath>/Defs/ThingDef[defName = "TableMachining"]/recipes</xpath>
 				<value>
-					<li>ReplimatDisassembleAiCore</li>
+					<li>ReplimatDisassembleComponent</li>
 				</value>
 			</li>
 		</operations>

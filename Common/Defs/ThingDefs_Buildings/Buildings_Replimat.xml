@@ -45,7 +45,7 @@
 		<uiIconPath>UI/replimatTerminal</uiIconPath>
 		<costList>
 			<Steel>30</Steel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
@@ -101,7 +101,7 @@
 		</graphicData>
 		<costList>
 			<Steel>12</Steel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
 		</costList>
 		<fillPercent>0.1</fillPercent>
 		<statBases>
@@ -173,7 +173,7 @@
 		<uiIconPath>UI/replimatFeedTank</uiIconPath>
 		<costList>
 			<Steel>75</Steel>
-			<ComponentSpacer>1</ComponentSpacer>
+			<ComponentIndustrial>1</ComponentIndustrial>
 		</costList>
 		<fillPercent>1</fillPercent>
 		<statBases>
@@ -222,7 +222,7 @@
 		<uiIconPath>UI/replimatHopper</uiIconPath>
 		<costList>
 			<Steel>40</Steel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
@@ -313,7 +313,7 @@
 		<uiIconPath>UI/replimatCorpseRecycler</uiIconPath>
 		<costList>
 			<Steel>75</Steel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<ComponentIndustrial>2</ComponentIndustrial>
 		</costList>
 		<fillPercent>0.5</fillPercent>
 		<statBases>
@@ -395,7 +395,7 @@
 		<uiIconPath>UI/replimatComputer</uiIconPath>
 		<costList>
 			<Steel>45</Steel>
-			<ComponentSpacer>4</ComponentSpacer>
+			<ComponentIndustrial>4</ComponentIndustrial>
 			<IsolinearModule>1</IsolinearModule>
 		</costList>
 		<fillPercent>1</fillPercent>
