@@ -39,6 +39,7 @@ namespace Replimat
             {
                 return false;
             }
+
             if (p.foodRestriction != null)
             {
                 if (!p.foodRestriction.Configurable)
@@ -56,6 +57,7 @@ namespace Replimat
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -65,19 +67,26 @@ namespace Replimat
             {
                 getter = eater;
             }
+
             // Default to null
             ThingDef SelectedMeal = null;
 
             if (eater != null)
             {
-                // Compile list of allowed meals for current pawn, limited to at least 40% nutrition with preferability above awful
-                // This eliminates stuff like chocolate, nutrient paste meals and corpses
-                // Joy-based consumption will require more patches, and is outside the scope of this mod
-                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => x.GetStatValueAbstract(StatDefOf.Nutrition) > 0.4f && x.ingestible.preferability > FoodPreferability.MealAwful && RepMatWillEat(eater, x, getter)).ToList();
+                FoodTypeFlags allowedFoodTypes = FoodTypeFlags.Meal | FoodTypeFlags.Processed;
 
-                // Manually remove Packaged Survival Meals, as pawns should only be getting "fresh" food to meet their immediate food needs
-                // (Survival Meals are reserved for caravans, as per custom gizmo)
-                allowedMeals.Remove(ThingDefOf.MealSurvivalPack);
+                // Compile list of allowed meals for current pawn
+                List<ThingDef> allowedMeals = ThingCategoryDefOf.Foods.DescendantThingDefs.Where(x => RepMatWillEat(eater, x, getter)).ToList();
+
+                // Remove meals that are worse than DesperateOnly 
+                allowedMeals.RemoveAll(x => x.ingestible.preferability < FoodPreferability.DesperateOnly);
+
+                // Remove anything that is not a meal or processed food product
+                allowedMeals.RemoveAll(x => (x.ingestible.foodType & allowedFoodTypes) == FoodTypeFlags.None);
+
+                // Manually remove any survival meals, as pawns should only be getting "fresh" food to meet their immediate food needs
+                // (Survival meals are reserved for caravans, as per custom gizmo)
+                allowedMeals.RemoveAll((ThingDef d) => GetSurvivalMealChoices().Contains(d));
 
                 // Remove meals from a blacklist (stored in the Replimat Computer)
                 allowedMeals.RemoveAll((ThingDef d) => replimatRestrictions.disallowedMeals.Contains(d));
@@ -94,10 +103,10 @@ namespace Replimat
                 }
                 else
                 {
-                    // If set to random then attempt to replicate any meal with preferability above awful
-                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.MealAwful))
+                    // If set to random then attempt to replicate any meal with preferability above DesperateOnly
+                    if (allowedMeals.Any(x => x.ingestible.preferability > FoodPreferability.DesperateOnly))
                     {
-                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.MealAwful).RandomElement();
+                        SelectedMeal = allowedMeals.Where(x => x.ingestible.preferability > FoodPreferability.DesperateOnly).RandomElement();
                     }
                     else
                     {
@@ -129,7 +138,7 @@ namespace Replimat
                     return directMatch || indirectMatch;
                 };
 
-                RecipeDef mealRecipe = DefDatabase<RecipeDef>.AllDefsListForReading.First(validator);
+                RecipeDef mealRecipe = DefDatabase<RecipeDef>.AllDefsListForReading.FirstOrDefault(validator);
 
                 if (mealRecipe != null)
                 {
@@ -170,13 +179,15 @@ namespace Replimat
                     // - Permanently disallowed by the Computer
                     // - Disallowed specifically by the pawn's food restriction policy
                     // - Humanlike and insect meats
+                    // - Meats from venerated animals (Ideo DLC)
                     // - Fertilized eggs
 
                     List<ThingDef> allowedIngredients = ThingCategoryDef.Named("FoodRaw").DescendantThingDefs.Where(x =>
                         !replimatRestrictions.disallowedIngredients.Contains(x) && 
-                        eater.foodRestriction.CurrentFoodRestriction.Allows(x) && 
+                        (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true) && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Humanlike && 
                         FoodUtility.GetMeatSourceCategory(x) != MeatSourceCategory.Insect &&
+                        !FoodUtility.IsVeneratedAnimalMeatOrCorpse(x, eater) &&
                         !x.thingCategories.Contains(ThingCategoryDefOf.EggsFertilized)
                     ).ToList();
 
@@ -185,7 +196,7 @@ namespace Replimat
                     {
                         allowedIngredients.AddRange(ThingCategoryDef.Named("VCE_Condiments").DescendantThingDefs.Where(x => 
                             !replimatRestrictions.disallowedIngredients.Contains(x) &&
-                            eater.foodRestriction.CurrentFoodRestriction.Allows(x)
+                            (eater.foodRestriction?.CurrentFoodRestriction.Allows(x) ?? true)
                         ));
                     }
 
@@ -202,12 +213,12 @@ namespace Replimat
                         }
                     }
 
-                    // Stage 2: Ideo replacements
+                    // Stage 2: Ideo DLC replacements
 
                     Ideo ideo = eater.Ideo;
 
                     // 2.1 Human cannibalism for meals containing meat
-                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true)
+                    if (ideo?.HasHumanMeatEatingRequiredPrecept() == true || (eater.story?.traits.HasTrait(TraitDefOf.Cannibal) ?? false))
                     {
                         List<ThingDef> existingMeats = ingredientThingDefs.FindAll((ThingDef d) => d.thingCategories.Contains(ThingCategoryDefOf.MeatRaw));
 
@@ -323,5 +334,9 @@ namespace Replimat
             }
         }
 
+        public static List<ThingDef> GetSurvivalMealChoices()
+        {
+            return replimatRestrictions.batchReplicableSurvivalMeals.Distinct().ToList();
+        }
     }
 }

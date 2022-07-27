@@ -100,21 +100,18 @@ namespace Replimat
 
         public StorageSettings GetParentStoreSettings()
         {
-            StorageSettings foobar = def.building.fixedStorageSettings;
-
-            // Remove Hologram corpses from filter if Save Our Ship 2 mod is active
-            if (ModCompatibility.SaveOurShip2IsActive)
-            {
-                foobar.filter.allowedDefs.RemoveWhere(def => def == ThingDef.Named("Corpse_SoSHologramRace"));
-            }
+            StorageSettings recyclerAllowedCorpses = def.building.fixedStorageSettings;
 
             // Remove non-fleshy corpses from filter if Humanoid Alien Races mod is active
             if (ModCompatibility.AlienRacesIsActive)
             {
-                foobar.filter.allowedDefs.RemoveWhere(def => !ModCompatibility.AlienCorpseHasOrganicFlesh(def));
+                recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => !ModCompatibility.AlienCorpseHasOrganicFlesh(def));
             }
 
-            return foobar;
+            // Remove non-fleshy corpses from filter for non-HAR humanoid robot or hologram races
+            recyclerAllowedCorpses.filter.allowedDefs.RemoveWhere(def => ThingDef.Named(def.ToString().Substring("Corpse_".Length)).GetStatValueAbstract(StatDefOf.MeatAmount) == 0);
+
+            return recyclerAllowedCorpses;
         }
 
         public override void PostMake()
@@ -154,7 +151,7 @@ namespace Replimat
             base.Draw();
 
             Vector3 replimatCorpseRecyclerGlowDrawPos = DrawPos;
-            replimatCorpseRecyclerGlowDrawPos.y = AltitudeLayer.Building.AltitudeFor() + 0.03f;
+            replimatCorpseRecyclerGlowDrawPos.y = def.altitudeLayer.AltitudeFor() + 0.03f;
 
             if (Running)
             {

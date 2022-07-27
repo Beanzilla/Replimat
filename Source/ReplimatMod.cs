@@ -30,14 +30,14 @@ namespace Replimat
                 Log.Message("Replimat :: Humanoid Alien Races detected!");
             }
 
-            if (ModCompatibility.SaveOurShip2IsActive)
-            {
-                Log.Message("Replimat :: Save Our Ship 2 detected!");
-            }
-
             if (ModCompatibility.VanillaCookingExpandedIsActive)
             {
                 Log.Message("Replimat :: Vanilla Cooking Expanded detected!");
+            }
+
+            if (ModCompatibility.DbhIsActive)
+            {
+                Log.Message("Replimat :: Dubs Bad Hygiene detected!");
             }
 
             MP_Util.Bootup(harmony);

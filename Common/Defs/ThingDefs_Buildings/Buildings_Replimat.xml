@@ -121,6 +121,8 @@
 		<pathCost>40</pathCost>
 		<surfaceType>Item</surfaceType>
 		<building>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
 				<priority>Critical</priority>
 				<filter>
@@ -242,12 +244,13 @@
 		<size>(3,1)</size>
 		<pathCost>150</pathCost>
 		<building>
+			<preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+			<ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
 			<fixedStorageSettings>
 				<priority>Important</priority>
 				<filter>
 					<categories>
-						<li>FoodMeals</li>
-						<li>FoodRaw</li>
+						<li>Foods</li>
 						<li>PlantMatter</li>
 					</categories>
 					<thingDefs>
@@ -259,8 +262,7 @@
 				<priority>Important</priority>
 				<filter>
 					<categories>
-						<li>FoodMeals</li>
-						<li>FoodRaw</li>
+						<li>Foods</li>
 						<li>PlantMatter</li>
 					</categories>
 					<thingDefs>
@@ -428,9 +430,16 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="Replimat.CompProperties_ReplimatRestrictions">
 				<!-- Meals that the Replimat system should never replicate -->
-				<disallowedMeals />
+				<disallowedMeals>
+					<li>MealNutrientPaste</li>
+					<li>Pemmican</li>
+				</disallowedMeals>
 				<!-- Ingredients that the Replimat system should normally never use in meals (ideology precepts may potentially ignore these) -->
 				<disallowedIngredients />
+				<!-- Allowed options for batch survival meal gizmo -->
+				<batchReplicableSurvivalMeals>
+					<li>MealSurvivalPack</li>
+				</batchReplicableSurvivalMeals>
 			</li>
 		</comps>
 	</ThingDef>
